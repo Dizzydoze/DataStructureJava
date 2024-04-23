@@ -3,9 +3,9 @@ package stacks;
 public class ArrayStack implements Stack{
 
     public static final int DEFAULT_INITIAL_SIZE = 100;
-    private int top;    // top pointer for efficiency, the index right after the element at the top of the stack
+    private int top;       // KEY: top pointer for efficiency, the index right AFTER the element at the TOP of the stack
     private Object[] data;
-    private int size;       // current num of element in the stack
+    private int size;      // current num of element in the stack
 
 
     public ArrayStack(){
@@ -15,7 +15,11 @@ public class ArrayStack implements Stack{
 
     @Override
     public void push(Object elem) {
+        if (top == size){
+            growStack();        // no more space when top reach size index(out of bound), resize.
+        }
         data[top] = elem;
+        top++;
     }
 
     /**
