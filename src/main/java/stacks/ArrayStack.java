@@ -5,12 +5,20 @@ public class ArrayStack implements Stack{
     public static final int DEFAULT_INITIAL_SIZE = 100;
     private int top;       // KEY: top pointer for efficiency, the index right AFTER the element at the TOP of the stack
     private Object[] data;
-    private int size;      // current num of element in the stack
+    private int size;      // the maximum number of elements in the stack
 
 
     public ArrayStack(){
         this.top = 0;
         this.data = new Object[DEFAULT_INITIAL_SIZE];
+        this.size = DEFAULT_INITIAL_SIZE;
+    }
+
+    /** Initialize as an array of a given size */
+    public ArrayStack(int initSize) {
+        data = new Object[initSize];
+        top = 0;
+        size = initSize;
     }
 
     @Override
