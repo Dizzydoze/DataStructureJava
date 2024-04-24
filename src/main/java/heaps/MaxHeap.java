@@ -100,11 +100,15 @@ public class MaxHeap {
     }
 
     public int[] sort(){
-        int[] sortedArray = new int[size];
-        while (size > 1){       // if size == 2, only 2 elements left, only one more deletion needed
-            sortedArray[size-1] = deleteMax();        // also, delete index 0 might cause problem
+//        int[] sortedArray = new int[size];
+//        while (size > 1){       // if size == 2, only 2 elements left, only one more deletion needed
+//            sortedArray[size-1] = deleteMax();        // also, delete index 0 might cause problem
+//        }
+//        return sortedArray;
+        while(size > 1){
+            deleteMax();
         }
-        return sortedArray;
+        return heapArray;
     }
 
     public void print(){
